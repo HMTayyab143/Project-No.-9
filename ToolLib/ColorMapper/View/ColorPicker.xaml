@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="ColorMapper.ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ColorMapper"
+             mc:Ignorable="d"
+             Name="colorPicker">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="60" />
+        </Grid.ColumnDefinitions>
+
+        <Slider Name="sliderAlpha" Minimum="0" Maximum="255"  Grid.Row="0"
+                Margin="{Binding ElementName=colorPicker,Path=Padding}"
+                Value="{Binding ElementName=colorPicker, Path=Alpha}" ></Slider>
+        <Slider Name="sliderRed" Minimum="0" Maximum="255"  Grid.Row="1"
+                Margin="{Binding ElementName=colorPicker,Path=Padding}"
+                Value="{Binding ElementName=colorPicker, Path=Red}" ></Slider>
+        <Slider Name="sliderGreen" Minimum="0" Maximum="255" Grid.Row="2"
+                Margin="{Binding ElementName=colorPicker,Path=Padding}"
+                 Value="{Binding ElementName=colorPicker, Path=Green}" ></Slider>
+        <Slider Name="sliderBlue" Minimum="0" Maximum="255" Grid.Row="3"
+                Margin="{Binding ElementName=colorPicker,Path=Padding}"
+                Value="{Binding ElementName=colorPicker, Path=Blue}" ></Slider>
+
+        <Rectangle Grid.Column="1" Grid.RowSpan="4" Width="50" Stroke="Black" StrokeThickness="1" >
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding ElementName=colorPicker, Path=Color}"></SolidColorBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Grid Grid.Row="0" Grid.Column="3">
+            <ProgressBar
+                Background="#E0207FA2"
+                Height="10"
+                Minimum="0" Maximum="255"
+                Value="{Binding ElementName=sliderAlpha, Path=Value}"
+                />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Run Text="A:" Foreground="White"/>
+                <Run Text="{Binding ElementName=sliderAlpha, Path=Value}" Foreground="White"/>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="3">
+            <ProgressBar
+                Background="#E0207FA2"
+                Height="10"
+                Minimum="0" Maximum="255"
+                Value="{Binding ElementName=sliderRed, Path=Value}"
+                />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Run Text="R:" Foreground="White"/>
+                <Run Text="{Binding ElementName=sliderRed, Path=Value}" Foreground="White"/>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="3">
+            <ProgressBar
+                Background="#E0207FA2"
+                Height="10"
+                Minimum="0" Maximum="255"
+                Value="{Binding ElementName=sliderGreen, Path=Value}"
+                />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Run Text="G:" Foreground="White"/>
+                <Run Text="{Binding ElementName=sliderGreen, Path=Value}" Foreground="White"/>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="3">
+            <ProgressBar
+                Background="#E0207FA2"
+                Height="10"
+                Minimum="0" Maximum="255" 
+                Value="{Binding ElementName=sliderBlue, Path=Value}"
+                />
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Run Text="B:" Foreground="White"/>
+                <Run Text="{Binding ElementName=sliderBlue, Path=Value}" Foreground="White"/>
+            </TextBlock>
+        </Grid>
+    </Grid>
+</UserControl>
