@@ -48,14 +48,10 @@ namespace ColorMapper
         private int ToInt(object obj)
         {
             if (obj == null)
-            {
                 return 0;
-            }
-
-            int data;
-            int.TryParse(obj.ToString().Trim(), out data);
-
-            return data;
+            if (int.TryParse(obj.ToString().Trim(), out int data))
+                return data;
+            return 0;
         }
     }
 }
