@@ -28,17 +28,20 @@ namespace ColorMapper
         {
         }
 
-        public SettingColor(string text)
+        public SettingColor(string key, string text)
+            : this(key, text, FormatType.ConvertToColor(text))
         {
-            this.Text = text;
-            this.Color = FormatType.ConvertToColor(text);
         }
 
-        public SettingColor(string text, Color color)
+        public SettingColor(string key, string text, Color color)
         {
+            this.Key = key;
             this.Text = text;
-            this.Color = Color;
+            this.Color = color;
         }
+
+        private string _key;
+        public string Key { get => _key; set => SetProperty(ref _key, value); }
 
         private string _text;
         public string Text { get => _text; set => SetProperty(ref _text, value); }

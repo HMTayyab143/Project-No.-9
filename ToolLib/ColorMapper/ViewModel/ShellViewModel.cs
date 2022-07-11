@@ -91,19 +91,29 @@ namespace ColorMapper
 
             using (StreamReader sr = new StreamReader(this.FileName))
             {
-                Regex regex = new Regex("Color=\"\\S*\"");
+                // <SolidColorBrush x:Key="Black0024" Color="#3F3F46"/>
+                var regexColor = new Regex("Color=\"\\S*\"");
+                var keyColor = new Regex("Key=\"\\S*\"");
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    var matcheList = regex.Matches(line);
-                    if (matcheList != null && matcheList.Count > 0)
+                    if (line.Contains("Key") && line.Contains("Color"))
                     {
-                        foreach (Match item in matcheList)
+                        var solidList = line.Split('>');
+                        foreach (var solid in solidList)
                         {
-                            //Console.WriteLine(item.Value);
+                            if (solid.Contains("Key") && solid.Contains("Color"))
+                            {
+                                var keyStr = keyColor.Match(solid);
+                                var colorStr = regexColor.Match(solid);
 
-                            var split = item.Value.Split('\"');
-                            list.Add(new SettingColor(split[1]));
+                                var keySp = keyStr.Value.Split('\"');
+                                var colorSp = colorStr.Value.Split('\"');
+                                if (keySp.Length > 0 && colorSp.Length > 0)
+                                {
+                                    list.Add(new SettingColor(keySp[1], colorSp[1]));
+                                }
+                            }
                         }
                     }
                 }
