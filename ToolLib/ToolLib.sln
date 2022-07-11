@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorMapper", "ColorMapper\ColorMapper.csproj", "{61CAD4C2-A90F-4A73-A88A-B25400AEB83E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontChangeToPath", "FontChangeToPath\FontChangeToPath.csproj", "{4F872EC2-D372-42E8-B22B-EF88018E0BA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{61CAD4C2-A90F-4A73-A88A-B25400AEB83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61CAD4C2-A90F-4A73-A88A-B25400AEB83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61CAD4C2-A90F-4A73-A88A-B25400AEB83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F872EC2-D372-42E8-B22B-EF88018E0BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F872EC2-D372-42E8-B22B-EF88018E0BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F872EC2-D372-42E8-B22B-EF88018E0BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F872EC2-D372-42E8-B22B-EF88018E0BA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
